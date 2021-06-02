@@ -1,0 +1,2 @@
+mysqldump example > exampledump.SQL
+mysql sample < exampledump.SQL
