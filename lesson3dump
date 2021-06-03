@@ -1,0 +1,1 @@
+mysqldump vk > vkdump.SQL
