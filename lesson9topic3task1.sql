@@ -1,0 +1,18 @@
+DROP FUNCTION IF EXISTS hello;
+
+DELIMITER //
+
+CREATE FUNCTION hello ()
+RETURNS TINYTEXT NOT DETERMINISTIC
+BEGIN
+	DECLARE hour INT;
+    SET hour = HOUR(NOW());
+    CASE
+    	WHEN hour BETWEEN 6 AND 12 THEN RETURN "Доброе утро";
+    	WHEN hour BETWEEN 12 AND 18 THEN RETURN "Добрый день";
+    	WHEN hour BETWEEN 18 AND 24 THEN RETURN "Добрый вечер";
+    	WHEN hour BETWEEN 24 AND 6 THEN RETURN "Доброй ночи";
+    END CASE;
+END//
+
+SELECT NOW(), hello()//
